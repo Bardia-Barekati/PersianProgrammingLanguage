@@ -1,7 +1,7 @@
 # Persian Programming Language
 a simple persian programming language written in python
 ## Examples
-### hello world:
+### hello world
 ```plain
 "سلام، دنیا!"
 ```
