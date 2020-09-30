@@ -1,36 +1,36 @@
 # Persian Programming Language
 a simple persian programming language written in python
-# Examples
-## hello world:
+## Examples
+### hello world:
 ```plain
 "سلام، دنیا!"
 ```
-## if else:
+### if else
 ```plain
 اگر 12 برابر 10 + 2 آنگاه "ده با دو میشود دوازده" وگرنه "ده با دو نمیشود دوازده"
 ```
-## user input:
+### user input
 ```plain
 عدد = عددگیر
 نام = ورودی
 ```
-## comments:
+### comments
 ```plain
 # این یک کامنت است
 # کامنت ها برنامه را تغییر نمیدهند
 ```
-## divisor:
+### divisor
 ```plain
 اگر 5 شمارنده 10 آنگاه "درسته" وگرنه "غلطه"
 ```
-## functions:
+### functions
 ```plain
 تابع زوج_فرد یعنی اگر 2 شمارنده عدد آنگاه "زوج" وگرنه "فرد"
 
 عدد = 15
 اجرای زوج_فرد
 ```
-## operators:
+### operators
 ```plain
 اول = 10
 دوم = 2
@@ -43,4 +43,4 @@ a simple persian programming language written in python
 
 * * *
 
-**This Interpreter Made Using (SLY)[https://sly.readthedocs.io/en/latest/sly.html]**
+**This Interpreter Made Using [SLY](https://sly.readthedocs.io/en/latest/sly.html)**
