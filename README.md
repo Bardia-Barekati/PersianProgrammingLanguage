@@ -1,8 +1,6 @@
 # Persian Programming Language
 a simple persian programming language written in python
 ## instructions
-**attention:** If you are using *Windows* and Interpreter doesn't work correctly [see that](https://stackoverflow.com/questions/57131654/using-utf-8-encoding-chcp-65001-in-command-prompt-windows-powershell-window/57134096#57134096).
-
 To interpret run this command on console:
 ```
 python3 interpreter.py <file adress>
