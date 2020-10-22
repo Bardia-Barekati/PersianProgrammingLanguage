@@ -1,5 +1,16 @@
 # Persian Programming Language
 a simple persian programming language written in python
+## instructions
+**attention:** The interpreter does not work on *Windows*!
+
+To interpret run this command on console:
+```
+python3 interpreter.py <file adress>
+```
+For example:
+```
+python3 interpreter.py examples/helloworld
+```
 ## Examples
 ### hello world
 ```plain
