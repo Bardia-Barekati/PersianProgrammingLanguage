@@ -223,23 +223,23 @@ class PPLExecute(object):
 			return (self.walk_tree(node[1]), self.walk_tree(node[2]))
 
 if __name__ == '__main__':
-    lexer = PPLLexer()
-    parser = PPLParser()
-    env = {}
-    if len(argv) < 2:
-	while True:
-            terminal = input('Ferdosi >>> ')
-            if terminal == 'quit' or terminal == 'exit':
-                break
-            else:
-                tokens = lexer.tokenize(terminal)
-                tree = parser.parse(tokens)
-                PPLExecute(tree, env)
-    elif argv[1][-1] == 'd' and argv[1][-2] == 'f' and argv[1][-3] == '.':
-        with open(argv[1], encoding="utf-8") as f:
-            for line in f.read().splitlines():
-                tokens = lexer.tokenize(line)
-                tree = parser.parse(tokens)
-                PPLExecute(tree, env)
-    else:
-        print('باید فایل دارای پسوند fd باشد')
+	lexer = PPLLexer()
+	parser = PPLParser()
+	env = {}
+	if len(argv) < 2:
+		while True:
+			terminal = input('Ferdosi >>> ')
+			if terminal == 'quit' or terminal == 'exit':
+				break
+			else:
+				tokens = lexer.tokenize(terminal)
+				tree = parser.parse(tokens)
+				PPLExecute(tree, env)
+	elif argv[1].endswith('.fd'):
+		with open(argv[1], encoding="utf-8") as f:
+			for line in f.read().splitlines():
+				tokens = lexer.tokenize(line)
+				tree = parser.parse(tokens)
+				PPLExecute(tree, env)
+	else:
+		print('باید فایل دارای پسوند fd باشد')
