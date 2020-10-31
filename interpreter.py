@@ -33,6 +33,10 @@ class PPLLexer(Lexer):
 	@_(r'#.*')
 	def COMMENT(self, t):
 		pass
+	
+	@_(r'//.*')
+	def COMMENT(self, t):
+		pass
 
 	@_(r'\n+')
 	def newline(self, t):
@@ -223,9 +227,19 @@ if __name__ == '__main__':
 	parser = PPLParser()
 	env = {}
 	if len(argv) < 2:
-		print('باید آدرس فایل برنامه را به‌عنوان آرگومنت به برنامه بدهید.')
-	with open(argv[1], encoding="utf-8") as f:
-		for line in f.read().splitlines():
-			tokens = lexer.tokenize(line)
-			tree = parser.parse(tokens)
-			PPLExecute(tree, env)
+		while True:
+			terminal = input('Ferdosi >>> ')
+			if terminal == 'quit' or terminal == 'exit':
+				break
+			else:
+				tokens = lexer.tokenize(terminal)
+				tree = parser.parse(tokens)
+				PPLExecute(tree, env)
+	elif argv[1].endswith('.fd'):
+		with open(argv[1], encoding="utf-8") as f:
+			for line in f.read().splitlines():
+				tokens = lexer.tokenize(line)
+				tree = parser.parse(tokens)
+				PPLExecute(tree, env)
+	else:
+		print('باید فایل دارای پسوند fd باشد')
