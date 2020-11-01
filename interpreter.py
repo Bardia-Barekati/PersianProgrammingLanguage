@@ -229,12 +229,18 @@ if __name__ == '__main__':
 	if len(argv) < 2:
 		while True:
 			terminal = input('Ferdosi >>> ')
-			if terminal == 'quit' or terminal == 'exit':
-				break
-			else:
-				tokens = lexer.tokenize(terminal)
-				tree = parser.parse(tokens)
-				PPLExecute(tree, env)
+			try:
+				if terminal == 'quit' or terminal == 'exit':
+					break
+
+				else:
+					tokens = lexer.tokenize(terminal)
+					tree = parser.parse(tokens)
+					PPLExecute(tree, env)
+
+			except:
+				print("دستور وارد شده نادرست است")
+				
 	elif argv[1].endswith('.fd'):
 		with open(argv[1], encoding="utf-8") as f:
 			for line in f.read().splitlines():
