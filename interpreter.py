@@ -236,14 +236,18 @@ if __name__ == '__main__':
 				print("دستور وارد شده نادرست است")
 				
 	elif argv[1].endswith('.fd'):
-		with open(argv[1], encoding="utf-8") as f:
-			for line in f.read().splitlines():
-				try:
-					tokens = lexer.tokenize(line)
-					tree = parser.parse(tokens)
-					PPLExecute(tree, env)
-				except:
-					print("دستور نادرست: %s" % line)
-					quit()
+		try:
+			with open(argv[1], encoding="utf-8") as f:
+				for line in f.read().splitlines():
+					try:
+						tokens = lexer.tokenize(line)
+						tree = parser.parse(tokens)
+						PPLExecute(tree, env)
+					except:
+						print("دستور نادرست: %s" % line)
+						quit()
+		except:
+			print("فایل مورد نظر وجود ندارد")
+			
 	else:
-		print('باید فایل دارای پسوند fd باشد')
+		print('فایل باید دارای پسوند fd باشد')
