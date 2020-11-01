@@ -30,11 +30,7 @@ class PPLLexer(Lexer):
 		t.value = int(t.value)
 		return t
 
-	@_(r'#.*')
-	def COMMENT(self, t):
-		pass
-	
-	@_(r'//.*')
+	@_(r'#.*', r'//.*')
 	def COMMENT(self, t):
 		pass
 
