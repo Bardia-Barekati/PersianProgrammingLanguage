@@ -5,9 +5,14 @@ To interpret run this command on console:
 ```
 python3 interpreter.py <file adress>
 ```
+Warning : File should be have .fd format
 For example:
 ```
-python3 interpreter.py examples/helloworld
+python3 interpreter.py examples/helloworld.fd
+```
+If you do not have file , You can programming live with Terminal:
+```
+python3 interpreter.py
 ```
 ## Examples
 ### hello world
