@@ -228,20 +228,22 @@ if __name__ == '__main__':
 			try:
 				if terminal == 'quit' or terminal == 'exit':
 					break
-
 				else:
 					tokens = lexer.tokenize(terminal)
 					tree = parser.parse(tokens)
 					PPLExecute(tree, env)
-
 			except:
 				print("دستور وارد شده نادرست است")
 				
 	elif argv[1].endswith('.fd'):
 		with open(argv[1], encoding="utf-8") as f:
 			for line in f.read().splitlines():
-				tokens = lexer.tokenize(line)
-				tree = parser.parse(tokens)
-				PPLExecute(tree, env)
+				try:
+					tokens = lexer.tokenize(line)
+					tree = parser.parse(tokens)
+					PPLExecute(tree, env)
+				except:
+					print("دستور نادرست: %s" % line)
+					quit()
 	else:
 		print('باید فایل دارای پسوند fd باشد')
