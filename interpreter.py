@@ -228,7 +228,7 @@ if __name__ == '__main__':
 	env = {}
 	if len(argv) < 2:
 		while True:
-			terminal = input('Ferdosi >>> ')
+			terminal = input('فردوسی >>> ')
 			if terminal == 'quit' or terminal == 'exit':
 				break
 			else:
