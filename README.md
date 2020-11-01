@@ -12,7 +12,7 @@ python3 interpreter.py examples/helloworld.fd
 ```
 If you do not have file , You can programming live with Terminal:
 ```
-python3
+python3 interpreter.py
 ```
 ## Examples
 ### hello world
