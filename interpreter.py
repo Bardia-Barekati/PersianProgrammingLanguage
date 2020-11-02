@@ -30,11 +30,7 @@ class PPLLexer(Lexer):
 		t.value = int(t.value)
 		return t
 
-	@_(r'#.*')
-	def COMMENT(self, t):
-		pass
-	
-	@_(r'//.*')
+	@_(r'#.*', r'//.*')
 	def COMMENT(self, t):
 		pass
 
@@ -229,17 +225,29 @@ if __name__ == '__main__':
 	if len(argv) < 2:
 		while True:
 			terminal = input('Ferdosi >>> ')
-			if terminal == 'quit' or terminal == 'exit':
-				break
-			else:
-				tokens = lexer.tokenize(terminal)
-				tree = parser.parse(tokens)
-				PPLExecute(tree, env)
+			try:
+				if terminal == 'quit' or terminal == 'exit':
+					break
+				else:
+					tokens = lexer.tokenize(terminal)
+					tree = parser.parse(tokens)
+					PPLExecute(tree, env)
+			except:
+				print("دستور وارد شده نادرست است")
+				
 	elif argv[1].endswith('.fd'):
-		with open(argv[1], encoding="utf-8") as f:
-			for line in f.read().splitlines():
-				tokens = lexer.tokenize(line)
-				tree = parser.parse(tokens)
-				PPLExecute(tree, env)
+		try:
+			with open(argv[1], encoding="utf-8") as f:
+				for line in f.read().splitlines():
+					try:
+						tokens = lexer.tokenize(line)
+						tree = parser.parse(tokens)
+						PPLExecute(tree, env)
+					except:
+						print("دستور نادرست: %s" % line)
+						quit()
+		except:
+			print("فایل مورد نظر وجود ندارد")
+			
 	else:
-		print('باید فایل دارای پسوند fd باشد')
+		print('فایل باید دارای پسوند fd باشد')
